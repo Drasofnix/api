@@ -1,3 +1,5 @@
+import 'package:prueba1/constants/imagens.dart';
+
 class Film {
   String? title;
   String? original_title;
@@ -5,9 +7,11 @@ class Film {
   String? description;
   String? director;
   String? producer;
-  int? release_date;
-  int? running_time;
-  int? rt_score;
+  String? release_date;
+  String? running_time;
+  String? rt_score;
+  String? url;
+  String? imagen;
 
   Film({
     this.title,
@@ -18,8 +22,11 @@ class Film {
     this.producer,
     this.release_date,
     this.running_time,
-    this.rt_score
-  });
+    this.rt_score,
+    this.url
+  }){
+    this.imagen = Imagenes.imagen[title!];
+  }
 
   factory Film.fromMapJson(Map<String, dynamic> data) => Film(
     title: data['title'],
@@ -31,5 +38,6 @@ class Film {
     release_date: data['release_date'],
     running_time: data['running_time'],
     rt_score: data['rt_score'],
+    url: data['url'],
   );
 }

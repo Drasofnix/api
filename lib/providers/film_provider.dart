@@ -7,7 +7,7 @@ class FilmsProvider{
 
   Future<List<Film>> obtenerFilms() async{
     final _response = await _http.get(_url);
-    List<dynamic> _data = _response.data[''];
+    List<dynamic> _data = _response.data;
     return _data.map((film) => Film.fromMapJson(film)).toList();
   }
 }
